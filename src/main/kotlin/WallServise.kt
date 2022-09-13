@@ -2,8 +2,9 @@ class WallService {
     private var posts = emptyArray<Post>()
 
 
+
     fun add(post: Post): Post {
-        posts += post
+        posts += post.copy(id = post.id)
         return posts.last()
     }
 
@@ -12,7 +13,9 @@ class WallService {
         for ((index, post) in posts.withIndex())
             if (post.id == postId.id) {
                 posts[index] = post.copy(
-                    id = post.id
+                    id = post.id,
+                    ownerId = post.ownerId,
+                    date = post.date
 
                 )
                 return true

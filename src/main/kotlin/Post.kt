@@ -3,23 +3,23 @@ import java.time.LocalDate
 
 
 data class Post(
-    val id: Int = 0,                     //Идентификатор записи
-    val from_id: Int = 0,                //Идентификатор автора записи (от чьего имени опубликована запись)
-    val created_by: Int = 0,             //Идентификатор администратора, который опубликовал запись (возвращается только для сообществ при запросе с ключом доступа администратора). Возвращается в записях, опубликованных менее 24 часов назад
-    val reply_owner_id: Int = 0,         //Идентификатор владельца записи, в ответ на которую была оставлена текущая
-    val friends_only: Boolean = true,    //1, если запись была создана с опцией «Только для друзей»
-    val date: LocalDate = LocalDate.now(),   //Время публикации записи в формате unixtime
-    val text: String = "Hello world",    //Текст записи
-    val is_favorite: Boolean = true, //true, если объект добавлен в закладки у текущего пользователя
-    val owner_id: Int = 0,
-    val post_type: String = "_",
-    val signer_id: Int = 0,
-    val can_pin: Int = 0,
-    val can_delete: Int = 0,
-    val can_edit: Int = 0,
-    val is_pinned: Int = 0,
-    val marked_as_ads: Int = 0,
-    val postponed_id: Int = 0,
+    val id: Int = 0,                      //Идентификатор записи
+    val fromId: Int = 0,                  //Идентификатор автора записи (от чьего имени опубликована запись)
+    val createdBy: Int = 0,               //Идентификатор администратора, который опубликовал запись (возвращается только для сообществ при запросе с ключом доступа администратора). Возвращается в записях, опубликованных менее 24 часов назад
+    val replyOwnerId: Int = 0,            //Идентификатор владельца записи, в ответ на которую была оставлена текущая
+    val friendsOnly: Boolean = true,      //1, если запись была создана с опцией «Только для друзей»
+    val date: LocalDate = LocalDate.now(),//Время публикации записи в формате unixtime
+    val text: String = "Hello world",     //Текст записи
+    val isFavorite: Boolean = true,       //true, если объект добавлен в закладки у текущего пользователя
+    val ownerId: Int = 0,
+    val postType: String = "_",
+    val signerId: Int = 0,
+    val canPin: Int = 0,
+    val canDelete: Int = 0,
+    val canEdit: Int = 0,
+    val isPinned: Int = 0,
+    val markedAsAds: Int = 0,
+    val postponedId: Int = 0,
     val comments: Comments? = Comments(),
     val likes: Likes = Likes(),
     var attachments: Array<Attachment> = emptyArray()
@@ -29,10 +29,10 @@ data class Post(
 
 data class Comments(
     val count: Int = 0,                  //количество комментариев
-    val can_post: Boolean = true,        //информация о том, может ли текущий пользователь комментировать запись (1 — может, 0 — не может)
-    val groups_can_post: Boolean = true, //информация о том, могут ли сообщества комментировать запись
-    val can_close: Boolean = true,       //может ли текущий пользователь закрыть комментарии к записи
-    val can_open: Boolean = true        //может ли текущий пользователь открыть комментарии к записи
+    val canPost: Boolean = true,         //информация о том, может ли текущий пользователь комментировать запись (1 — может, 0 — не может)
+    val groupsCanPost: Boolean = true,   //информация о том, могут ли сообщества комментировать запись
+    val canClose: Boolean = true,        //может ли текущий пользователь закрыть комментарии к записи
+    val canOpen: Boolean = true          //может ли текущий пользователь открыть комментарии к записи
 )
 
 data class Likes(

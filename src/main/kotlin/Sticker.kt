@@ -1,6 +1,6 @@
 data class Sticker(
-    val product_id: Int = 4,
-    val sticker_id: Int = 4,
-    val animation_url: String = "_",
-    val is_allowed: Boolean = true
+    val productId: Int = 4,
+    val stickerId: Int = 4,
+    val animationUrl: String = "_",
+    val isAllowed: Boolean = true
 )
