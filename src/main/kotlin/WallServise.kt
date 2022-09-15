@@ -1,7 +1,18 @@
 class WallService {
     private var posts = emptyArray<Post>()
+    private var comments = emptyArray<Comments>()
+   // var lastId = 0
 
+    fun createComment(postId: Int, comment: Comments): Comments {
+        for (post in posts) {
+            if (postId == post.id) {
+                comments += comment
+                return comments.last()
+            }
+        }
+        throw PostNotFoundException("Post not found")
 
+    }
 
     fun add(post: Post): Post {
         posts += post.copy(id = post.id)
@@ -22,4 +33,9 @@ class WallService {
             }
         return false
     }
-}
+
+
+    }
+
+
+
