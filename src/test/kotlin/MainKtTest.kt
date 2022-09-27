@@ -38,4 +38,21 @@ class MainKtTest {
 
     }
 
+    @Test
+    fun shouldThrowTrue() {
+        val wallService = WallService()
+        wallService.add(Post(2))
+        val commentTest = Comments()
+        wallService.createComment(2, commentTest)
+    }
+
+    @Test(expected = PostNotFoundException::class)
+    fun shouldThrow() {
+        val wallService = WallService()
+        wallService.add(Post(3))
+        wallService.createComment(postId = 4, Comments())
+
+    }
+
+
 }
